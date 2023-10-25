@@ -4,6 +4,8 @@ package com.revature.components;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import net.bytebuddy.implementation.bytecode.Addition;
+
 /**
  * For the purpose of this application, the Squarer class is dependent on the functionality of the Multiplier class,
  * making this a dependency of Multiplier.
@@ -23,7 +25,9 @@ public class Multiplier {
      * Generally, field injection is not recommended, but it works for this example.
      * @param adder
      */
-    Adder adder;
+    @Autowired
+    private Adder adder;
+    
 
     /**
      * Instead of using the * operator normally, leverage the Adder dependency to multiply numbers the hard way
